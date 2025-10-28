@@ -16,7 +16,7 @@ int main() {
 
     else {
         int errmsg[2] = {a, b};
-        printf("'%d' is not a valid number", errmsg[res.errtype]);
+        printf("'%d' is not a valid number\n", errmsg[res.errtype]);
         exit(1);
     }
     return 0;
