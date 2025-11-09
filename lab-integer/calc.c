@@ -8,16 +8,13 @@ int max(int a, int b) {
 }
 
 result digit_sum(int a, int b) {
-    int len1 = floor(log10(a))+1;
-    int len2 = floor(log10(b))+1;
     result out;
     out.res = 0;
-    int maxlen = max(len1, len2);
-
+    int multiplier = 1;
     int res=0;
     int carry=0;
 
-    for (int i = 0; i < maxlen; i++) {
+    while (a+b>0) {
         int d1 = a%10;
         if (d1>=3) {
             out.success = false;
@@ -39,10 +36,11 @@ result digit_sum(int a, int b) {
             carry = 1;
             x-=3;
         }
-        res+=x*pow(10, i);
+        res+=x*multiplier;
+        multiplier*=10;
 
     }
-    res+=carry*pow(10, maxlen);
+    res+=carry*multiplier;
     out.success = true;
     out.res = res;
     return out;
